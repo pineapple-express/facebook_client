@@ -1,35 +1,38 @@
-<h2>this is a test</h2>
+<h2>Kasasa Notifications</h2>
 <br>
-<h3 id="fb-welcome"></h3>
+<h3 id="fb-welcome"></h3><br>
+<p id="link-account"></p>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1609387949311899',
+      appId      : '1454693584839154',
       xfbml      : true,
       version    : 'v2.4'
     });
 
-function onLogin(response) {
-  if (response.status == 'connected') {
-    FB.api('/me?fields=first_name', function(data) {
-      var welcomeBlock = document.getElementById('fb-welcome');
-      welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-    });
-  }
-}
+    function onLogin(response) {
+      if (response.status == 'connected') {
+        FB.api('/me?fields=first_name,id', function(data) {
+          var welcomeBlock = document.getElementById('fb-welcome');
+          welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
+          var linkAccount = document.getElementById('link-account');
+          linkAccount.innerHTML = 'Thank you for signing up for the Kasasa app! Now link your Facebook account to your Kasasa Dashboard to stay on top of your Kasasa reward status by following this <a target="_" href="https://dashboard.com/login?fb_id=' + data.id + '">link</a>.';
+        });
+      }
+    }
 
-FB.getLoginStatus(function(response) {
-  // Check login status on load, and if the user is
-  // already logged in, go directly to the welcome message.
-  if (response.status == 'connected') {
-    onLogin(response);
-  } else {
-    // Otherwise, show Login dialog first.
-    FB.login(function(response) {
-      onLogin(response);
-    }, {scope: 'user_friends, email'});
-  }
-});    
+    FB.getLoginStatus(function(response) {
+      // Check login status on load, and if the user is
+      // already logged in, go directly to the welcome message.
+      if (response.status == 'connected') {
+        onLogin(response);
+      } else {
+        // Otherwise, show Login dialog first.
+        FB.login(function(response) {
+          onLogin(response);
+        }, {scope: ''});
+      }
+    });    
    
     //FB.ui({
     // method: 'send',
@@ -39,8 +42,9 @@ FB.getLoginStatus(function(response) {
   
     //});    
     // ADD ADDITIONAL FACEBOOK CODE HERE
-  };
+};
 
+  // Facebook JS SDK load
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
