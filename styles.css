@@ -1,12 +1,11 @@
-h2 #heading {
+#heading {
 	color: red;
 }
 
-h3 #fb-welcome {
-}
-
 .jumbotron {
-	background-image: url(/img/jumbo-kasasa.png);
+	background-image: url(/img/jumbo_kasasa.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #dashboard div {
