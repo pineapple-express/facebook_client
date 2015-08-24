@@ -1,4 +1,4 @@
-<h2>Kasasa Notifications</h2>
+<h2 id="heading">Kasasa Reward Notifications</h2>
 <br>
 <h3 id="fb-welcome"></h3><br>
 <p id="link-account"></p>
@@ -21,7 +21,7 @@
             dashboard.innerHTML = '<iframe src="https://marvelapp.com/14gd3dj#7227271"></iframe>';
           } else {
             var linkAccount = document.getElementById('link-account');
-            linkAccount.innerHTML = 'Thank you for signing up for the Kasasa app! Now link your Facebook account to your Kasasa Dashboard to stay on top of your Kasasa reward status by following this <a target="_" href="https://dashboard.com/login?fb_id=' + data.id + '">link</a>.';
+            linkAccount.innerHTML = 'Thank you for signing up for the Kasasa app! Now link your Facebook account to your Kasasa Dashboard to stay on top of your Kasasa reward status by following this <a target="_blank" href="/dashboard-link.html?fb_id=' + data.id + '">link</a>.';
           }
         });
       }
