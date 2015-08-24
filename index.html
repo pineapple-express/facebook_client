@@ -18,6 +18,7 @@
           welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
           if (getQueryVariable('dashboard')) {
             var dashboard = document.getElementById('dashboard');
+            FB.Canvas.setSize({ width: 1200, height: 800 });
             dashboard.innerHTML = '<iframe src="https://marvelapp.com/14gd3dj#7227271"></iframe>';
           } else {
             var linkAccount = document.getElementById('link-account');
