@@ -2,12 +2,6 @@
 	color: red;
 }
 
-.jumbotron {
-	background-image: url(/img/jumbo_kasasa.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 #dashboard div {
 	width: 90%;
 	height: 400px;
